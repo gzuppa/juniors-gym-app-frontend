@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+main {
+  width: 100%;
+  padding: 20px;
+}
+
+/* DROP IMAGE CONTAINER */
+
+input[type='file'] {
+  width: 350px;
+  max-width: 100%;
+  color: #444;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #555;
+}
+
+input[type='file']::file-selector-button {
+  background: #fde047;
+  color: #6b21a8;
+}
+
+input[type='file']::file-selector-button:hover {
+  background: #6b21a8;
+  color: #fde047;
+}
+
+.drop-container {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px dashed #555;
+  color: #444;
+  cursor: pointer;
+  transition:
+    background 0.2s ease-in-out,
+    border 0.2s ease-in-out;
+}
+
+.drop-container:hover {
+  background: #eee;
+  border-color: #111;
+}
+
+.drop-container:hover .drop-title {
+  color: #222;
+}
+
+.drop-title {
+  color: #444;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: color 0.2s ease-in-out;
+}
+
+/* HERO BANNER */
+.inset {
+  position: absolute;
+  inset: 0;
+}
+.white {
+  color: white;
+}
+.gray {
+  color: #446;
+}
+
+.full {
+  height: 100vh;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gradient {
+  background: linear-gradient(rgba(14, 62, 151, 0.5) 50%, black);
+}
