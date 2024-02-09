@@ -31,13 +31,22 @@ const Header = () => {
       >
         <ul className="font-raleway">
           <li className="text-yellow-300 hover:text-purple-800">
-            <Link to="/admin/members">Iniciar sesión</Link>
+            <Link onClick={() => {setIsNavExpanded(!isNavExpanded)}} to="/admin">Panel inicial</Link>
           </li>
           <li className="text-yellow-300 hover:text-purple-800">
-            <Link to="/admin">Panel inicial</Link>
+            <Link onClick={() => {setIsNavExpanded(!isNavExpanded)}} to="/admin/members">Usuarios</Link>
           </li>
           <li className="text-yellow-300 hover:text-purple-800">
-            <Link to="/">Cerrar sesión</Link>
+            <Link onClick={() => {setIsNavExpanded(!isNavExpanded)}} to="/admin/create-member">Agregar nuevo usuario</Link>
+          </li>
+          <li className="text-yellow-300 hover:text-purple-800">
+            <Link onClick={() => {setIsNavExpanded(!isNavExpanded)}} to="/admin/send-reminder">Recordatorios de pago</Link>
+          </li>
+          <li className="text-yellow-300 hover:text-purple-800">
+            <Link onClick={() => {setIsNavExpanded(!isNavExpanded)}} to="/admin/warehouse">Inventario</Link>
+          </li>
+          <li className="text-yellow-300 hover:text-purple-800">
+            <Link onClick={() => {setIsNavExpanded(!isNavExpanded)}} to="/">Cerrar sesión</Link>
           </li>
         </ul>
       </div>
