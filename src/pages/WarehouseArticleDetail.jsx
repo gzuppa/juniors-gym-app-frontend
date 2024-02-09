@@ -64,20 +64,24 @@ const WarehouseArticleDetail = () => {
                 </span>
                 <span className="text-purple-800">{article.stock}</span>
               </div>
-              <div className="mr-4 mt-6">
-                <Link
-                  className="px-10 font-medium text-white py-2.5 bg-gradient-to-r whitespace-nowrap from-purple-950 to-purple-200 rounded-lg cursor-pointer font-raleway"
-                  to={`/admin/warehouse/edit/${params.id}`}
-                >
-                  <EditOutlinedIcon /> Editar
-                </Link>
-                <Link
-                  className="ml-4 px-10 font-medium text-white py-2.5 bg-gradient-to-r whitespace-nowrap from-purple-950 to-purple-200 rounded-lg cursor-pointer font-raleway"
-                  to={`/admin/warehouse`}
-                >
-                  <EditOutlinedIcon /> Volver a inventario
-                </Link>
-              </div>
+              {/* <div className="mr-4 mt-6"> */}
+                <div className="mt-5">
+                  <Link
+                    className="px-10 font-medium text-white py-2.5 bg-gradient-to-r whitespace-nowrap from-purple-950 to-purple-200 rounded-lg cursor-pointer font-raleway"
+                    to={`/admin/warehouse/edit/${params.id}`}
+                  >
+                    <EditOutlinedIcon /> Editar
+                  </Link>
+                </div>
+                <div className="mt-7">
+                  <Link
+                    className="px-10 font-medium text-white py-2.5 bg-gradient-to-r whitespace-nowrap from-purple-950 to-purple-200 rounded-lg cursor-pointer font-raleway"
+                    to={`/admin/warehouse`}
+                  >
+                    <EditOutlinedIcon /> Volver a inventario
+                  </Link>
+                </div>
+              {/* </div> */}
             </div>
           </div>
         </div>
