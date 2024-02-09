@@ -71,7 +71,7 @@ const Member = () => {
     <>
       <div className="flex justify-between">
         <div className="flex items-center">
-          <h1 className="font-bold text-purple-400 text-4xl font-raleway">
+          <h1 className="font-bold text-yellow-300 text-4xl font-raleway">
             {name} {lastName}
           </h1>
           <img
@@ -89,7 +89,7 @@ const Member = () => {
           </Link>
         )}
       </div>
-      <p className="text-xl mt-5 text-purple-500">Asistencias del usuario</p>
+      <p className="text-xl mt-5 text-yellow-300">Asistencias del usuario</p>
       <button
         type="button"
         onClick={() => addAssistance()}
@@ -106,7 +106,7 @@ const Member = () => {
           </p>
         )}
       </div>
-      <p className="font-bold text-xl mt-10 text-purple-500">
+      <p className="text-xl mt-10 text-yellow-300">
         Entrenamientos del usuario
       </p>
       {admin && (
@@ -132,9 +132,7 @@ const Member = () => {
       {admin && (
         <>
           <div className="flex items-center justify-between mt-10">
-            <p className="font-bold text-xl text-purple-500">
-              Entrenadores del usuario
-            </p>
+            <p className="text-xl text-yellow-300">Entrenadores del usuario</p>
             <Link
               className="text-yellow-300 hover:text-purple-600 cursor-pointer flex items-center gap-2 font-raleway"
               to={`/admin/members/new-trainer/${member._id}`}

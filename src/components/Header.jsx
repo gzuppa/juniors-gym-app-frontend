@@ -64,7 +64,7 @@ const Header = () => {
               }}
               to="/admin/create-member"
             >
-              <GroupAddOutlinedIcon className="mr-2 flex items-center justify-center"/>
+              <GroupAddOutlinedIcon className="mr-2 flex items-center justify-center" />
               Agregar nuevo usuario
             </Link>
           </li>
@@ -75,7 +75,7 @@ const Header = () => {
               }}
               to="/admin/send-reminder"
             >
-              <WhatsAppIcon className="mr-2 flex items-center justify-center"/>
+              <WhatsAppIcon className="mr-2 flex items-center justify-center" />
               Recordatorios de pago
             </Link>
           </li>
@@ -86,7 +86,7 @@ const Header = () => {
               }}
               to="/admin/warehouse"
             >
-              <WarehouseOutlinedIcon className="mr-2 flex items-center justify-center"/>
+              <WarehouseOutlinedIcon className="mr-2 flex items-center justify-center" />
               Inventario
             </Link>
           </li>
