@@ -15,8 +15,6 @@ const WhatsappReminder = () => {
     return element.status === "Por pagar";
   });
 
-  console.log(blockedUsers);
-
   const DataBlock = (props) => {
     return (
       <div className="border-b p-5 flex flex-col md:flex-row justify-between">

@@ -92,12 +92,12 @@ const ForgotPassword = () => {
         >
           ¿Ya tienes una cuenta? Iniciar sesión
         </Link>
-        <Link
+        {/* <Link
           to="/register"
           className="block text-center my-5 text-yellow-300 uppercase text-sm"
         >
           ¿No tienes una cuenta? Registrate
-        </Link>
+        </Link> */}
       </nav>
     </>
   );

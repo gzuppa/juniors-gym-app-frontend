@@ -116,13 +116,13 @@ const Login = () => {
         />
       </form>
 
-      <nav className="lg:flex lg:justify-between">
-        <Link
+      <nav className="lg:flex lg:justify-center">
+        {/* <Link
           to="/register"
           className="block text-center my-5 text-yellow-300 uppercase text-sm"
         >
           ¿No tienes una cuenta? Registrate
-        </Link>
+        </Link> */}
         <Link
           to="/forgot-password"
           className="block text-center my-5 text-yellow-300 uppercase text-sm"
@@ -131,12 +131,13 @@ const Login = () => {
         </Link>
       </nav>
       <div>
-        <Link
-          to="/"
+        <a
+          href="https://juniorsgym.com"
+          target='_blank'
           className="block text-center my-5 text-yellow-300 uppercase text-sm"
         >
-          Regresar al home
-        </Link>
+          Visitar sitio web
+        </a>
       </div>
     </>
   );
