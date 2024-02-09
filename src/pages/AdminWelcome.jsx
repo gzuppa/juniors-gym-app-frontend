@@ -1,8 +1,8 @@
-import { Grid } from '@mui/material'
-import ChartWrapper from '../styles/ChartWrapper'
-import DashboardTable from '../components/Dashboard/DashboardTable'
-import WelcomeCard from '../components/Dashboard/WelcomeCard'
-import StatisticsCard from '../components/Dashboard/StatisticsCard'
+import { Grid } from "@mui/material";
+import ChartWrapper from "../styles/ChartWrapper";
+import DashboardTable from "../components/Dashboard/DashboardTable";
+import WelcomeCard from "../components/Dashboard/WelcomeCard";
+import StatisticsCard from "../components/Dashboard/StatisticsCard";
 
 const AdminWelcome = () => {
   return (
@@ -77,7 +77,7 @@ const AdminWelcome = () => {
         </Grid>
       </Grid>
     </ChartWrapper>
-  )
-}
+  );
+};
 
-export default AdminWelcome
+export default AdminWelcome;

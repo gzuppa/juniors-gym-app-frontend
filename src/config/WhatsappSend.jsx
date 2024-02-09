@@ -1,34 +1,34 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-const URL = 'https://wa.me'
+const URL = "https://wa.me";
 
 const WhatsappSend = ({ number, message, element, onClick, ...props }) => {
-  number = number.replace(/[^\w\s]/gi, '').replace(/ /g, '')
+  number = number.replace(/[^\w\s]/gi, "").replace(/ /g, "");
 
-  let url = `${URL}/${number}`
+  let url = `${URL}/${number}`;
 
   if (message) {
-    url += `?text=${encodeURI(message)}`
+    url += `?text=${encodeURI(message)}`;
   }
 
   return (
     <button
-      onClick={e => {
-        window.open(url)
+      onClick={(e) => {
+        window.open(url);
 
         if (onClick) {
-          onClick(e)
+          onClick(e);
         }
       }}
       {...props}
     />
-  )
-}
+  );
+};
 
 WhatsappSend.propTypes = {
   number: PropTypes.string.isRequired,
   message: PropTypes.string,
-}
+};
 
-export default WhatsappSend
+export default WhatsappSend;

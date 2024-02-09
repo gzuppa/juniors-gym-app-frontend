@@ -1,26 +1,26 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { LocalizationProvider } from '@mui/x-date-pickers'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { AuthProvider } from './context/AuthProvider'
-import { MemberProvider } from './context/MemberProvider'
-import AuthLayout from './layouts/AuthLayout'
-import ProtectedRoute from './layouts/ProtectedRoute'
-import AdminWelcome from './pages/AdminWelcome'
-import ConfirmAccount from './pages/ConfirmAccount'
-import EditMember from './pages/EditMember'
-import ForgotPassword from './pages/ForgotPassword'
-import Login from './pages/Login'
-import Member from './pages/Member'
-import Members from './pages/Members'
-import NewMember from './pages/NewMember'
-import NewPassword from './pages/NewPassword'
-import NewTrainer from './pages/NewTrainer'
-import Register from './pages/Register'
-import Warehouse from './pages/Warehouse'
-import WarehouseArticleDetail from './pages/WarehouseArticleDetail'
-import WarehouseArticleEdit from './pages/WarehouseArticleEdit'
-import WhatsappReminder from './pages/WhatsappReminder'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { AuthProvider } from "./context/AuthProvider";
+import { MemberProvider } from "./context/MemberProvider";
+import AuthLayout from "./layouts/AuthLayout";
+import ProtectedRoute from "./layouts/ProtectedRoute";
+import AdminWelcome from "./pages/AdminWelcome";
+import ConfirmAccount from "./pages/ConfirmAccount";
+import EditMember from "./pages/EditMember";
+import ForgotPassword from "./pages/ForgotPassword";
+import Login from "./pages/Login";
+import Member from "./pages/Member";
+import Members from "./pages/Members";
+import NewMember from "./pages/NewMember";
+import NewPassword from "./pages/NewPassword";
+import NewTrainer from "./pages/NewTrainer";
+import Register from "./pages/Register";
+import Warehouse from "./pages/Warehouse";
+import WarehouseArticleDetail from "./pages/WarehouseArticleDetail";
+import WarehouseArticleEdit from "./pages/WarehouseArticleEdit";
+import WhatsappReminder from "./pages/WhatsappReminder";
+import "./App.css";
 
 function App() {
   return (
@@ -66,7 +66,7 @@ function App() {
         </AuthProvider>
       </LocalizationProvider>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

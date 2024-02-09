@@ -1,13 +1,13 @@
-import useMembers from '../hooks/useMembers'
-import MemberPreview from '../components/Previews/MemberPreview'
-import Searching from '../components/Searching'
+import useMembers from "../hooks/useMembers";
+import MemberPreview from "../components/Previews/MemberPreview";
+import Searching from "../components/Searching";
 
 const Members = () => {
-  const { handleSearching, allMembers } = useMembers()
+  const { handleSearching, allMembers } = useMembers();
 
   return (
     <>
-      <h1 className="text-4xl text-purple-400 font-raleway font-bold">
+      <h1 className="text-4xl text-yellow-300 font-raleway font-bold">
         Usuarios
       </h1>
       <button
@@ -20,7 +20,7 @@ const Members = () => {
       <Searching />
       <div className="bg-white shadow mt-10 rounded-lg">
         {allMembers.length ? (
-          allMembers.map(member => (
+          allMembers.map((member) => (
             <MemberPreview key={member._id} member={member} />
           ))
         ) : (
@@ -30,7 +30,7 @@ const Members = () => {
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Members
+export default Members;

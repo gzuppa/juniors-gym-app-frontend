@@ -1,50 +1,50 @@
-import { useState } from 'react'
+import { useState } from "react";
 import {
   FormControl,
   InputAdornment,
   InputLabel,
   OutlinedInput,
-} from '@mui/material'
-import PersonIcon from '@mui/icons-material/Person'
-import Swal from 'sweetalert2'
-import useMembers from '../../hooks/useMembers'
+} from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
+import Swal from "sweetalert2";
+import useMembers from "../../hooks/useMembers";
 
 const TrainerForm = () => {
-  const [name, setName] = useState('')
-  const { submitTrainer } = useMembers()
+  const [name, setName] = useState("");
+  const { submitTrainer } = useMembers();
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    if (name === '') {
+    if (name === "") {
       Swal.fire({
-        title: 'Atención!',
-        text: 'El nombre es obligatorio',
-        icon: 'warning',
-        confirmButtonText: 'Reintentar',
-      })
-      return
+        title: "Atención!",
+        text: "El nombre es obligatorio",
+        icon: "warning",
+        confirmButtonText: "Reintentar",
+      });
+      return;
     }
-    submitTrainer(name)
-  }
+    submitTrainer(name);
+  };
 
   return (
     <form
       className="bg-white py-10 px-5 w-full md:w-1/2 rounded-lg shadow"
       onSubmit={handleSubmit}
     >
-      <FormControl sx={{ width: '100%' }}>
+      <FormControl sx={{ width: "100%" }}>
         <InputLabel htmlFor="name">Nombre</InputLabel>
         <OutlinedInput
           endAdornment={
-            <InputAdornment position="end" sx={{ color: '#6b21a8' }}>
+            <InputAdornment position="end" sx={{ color: "#6b21a8" }}>
               <PersonIcon />
             </InputAdornment>
           }
           id="name"
           label="Nombre"
-          onChange={e => setName(e.target.value)}
-          sx={{ label: { color: '#6b21a8' } }}
+          onChange={(e) => setName(e.target.value)}
+          sx={{ label: { color: "#6b21a8" } }}
           type="text"
           value={name}
         />
@@ -56,7 +56,7 @@ const TrainerForm = () => {
         value="Buscar entrenador"
       />
     </form>
-  )
-}
+  );
+};
 
-export default TrainerForm
+export default TrainerForm;

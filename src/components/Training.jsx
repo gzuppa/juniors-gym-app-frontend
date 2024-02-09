@@ -1,55 +1,55 @@
-import { useMemo } from 'react'
-import { Chip, Typography } from '@mui/material'
-import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined'
-import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike'
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter'
-import SportsKabaddiOutlinedIcon from '@mui/icons-material/SportsKabaddiOutlined'
-import { formatDate } from '../helpers/formatDate'
-import useMembers from '../hooks/useMembers'
-import useAdmin from '../hooks/useAdmin'
+import { useMemo } from "react";
+import { Chip, Typography } from "@mui/material";
+import CheckOutlinedIcon from "@mui/icons-material/CheckOutlined";
+import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import SportsKabaddiOutlinedIcon from "@mui/icons-material/SportsKabaddiOutlined";
+import { formatDate } from "../helpers/formatDate";
+import useMembers from "../hooks/useMembers";
+import useAdmin from "../hooks/useAdmin";
 
 const Training = ({ training }) => {
   const { name, description, startDate, level, status, _id, completed } =
-    training
+    training;
   const {
     completeTraining,
     handleEditTrainingModal,
     handleDeleteTrainingModal,
-  } = useMembers()
-  const admin = useAdmin()
+  } = useMembers();
+  const admin = useAdmin();
 
   const chipLevelColor = useMemo(() => {
     switch (level) {
-      case 'Principiante':
-        return 'info'
-      case 'Intermedio':
-        return 'secondary'
-      case 'Avanzado':
-        return 'error'
-      case 'Alto Nivel':
-        return 'success'
+      case "Principiante":
+        return "info";
+      case "Intermedio":
+        return "secondary";
+      case "Avanzado":
+        return "error";
+      case "Alto Nivel":
+        return "success";
       default:
-        return 'secondary'
+        return "secondary";
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [level])
+  }, [level]);
 
   const chipLevelIcon = useMemo(() => {
     switch (level) {
-      case 'Principiante':
-        return <DirectionsBikeIcon />
-      case 'Intermedio':
-        return <FitnessCenterIcon />
-      case 'Avanzado':
-        return <EmojiEventsIcon />
-      case 'Alto Nivel':
-        return <SportsKabaddiOutlinedIcon />
+      case "Principiante":
+        return <DirectionsBikeIcon />;
+      case "Intermedio":
+        return <FitnessCenterIcon />;
+      case "Avanzado":
+        return <EmojiEventsIcon />;
+      case "Alto Nivel":
+        return <SportsKabaddiOutlinedIcon />;
       default:
-        return <PriceCheckIcon />
+        return <PriceCheckIcon />;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [level])
+  }, [level]);
 
   return (
     <div className="border-b p-5 flex justify-between items-center font-raleway">
@@ -86,19 +86,19 @@ const Training = ({ training }) => {
             className="bg-purple-800 px-4 py-3 text-white rounded-lg"
             onClick={() => handleEditTrainingModal(training)}
           >
-            <Typography sx={{ fontSize: '10px' }}>Editar</Typography>
+            <Typography sx={{ fontSize: "10px" }}>Editar</Typography>
           </button>
         )}
         <button
           className={`${
-            status ? 'bg-green-500' : 'bg-orange-500'
+            status ? "bg-green-500" : "bg-orange-500"
           } px-4 py-3 text-white rounded-lg`}
           onClick={() => completeTraining(_id)}
         >
           {status ? (
-            <Typography sx={{ fontSize: '10px' }}>Finalizado</Typography>
+            <Typography sx={{ fontSize: "10px" }}>Finalizado</Typography>
           ) : (
-            <Typography sx={{ fontSize: '10px' }}>Incompleto</Typography>
+            <Typography sx={{ fontSize: "10px" }}>Incompleto</Typography>
           )}
         </button>
         {admin && (
@@ -106,12 +106,12 @@ const Training = ({ training }) => {
             className="bg-red-600 px-4 py-3 text-white rounded-lg"
             onClick={() => handleDeleteTrainingModal(training)}
           >
-            <Typography sx={{ fontSize: '10px' }}>Eliminar</Typography>
+            <Typography sx={{ fontSize: "10px" }}>Eliminar</Typography>
           </button>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Training
+export default Training;

@@ -1,18 +1,18 @@
-import { Fragment } from 'react'
-import { Link } from 'react-router-dom'
-import { Dialog, Transition } from '@headlessui/react'
-import { Box, Typography } from '@mui/material'
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined'
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
-import useMembers from '../../hooks/useMembers'
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
+import { Dialog, Transition } from "@headlessui/react";
+import { Box, Typography } from "@mui/material";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import useMembers from "../../hooks/useMembers";
 
 const BlockedModalUsers = () => {
   const { allMembers, blockedUsersModal, handleBlockedUsersModal } =
-    useMembers()
+    useMembers();
 
-  const blockedUsers = allMembers.filter(element => {
-    return element.status === 'Bloqueado'
-  })
+  const blockedUsers = allMembers.filter((element) => {
+    return element.status === "Bloqueado";
+  });
 
   return (
     <>
@@ -46,7 +46,7 @@ const BlockedModalUsers = () => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <div className="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
+                  <div className="sm:block absolute top-0 right-0 pt-4 pr-4">
                     <button
                       type="button"
                       className="bg-white rounded-md text-purple-800 hover:text-purple-500 focus:outline-none"
@@ -68,20 +68,20 @@ const BlockedModalUsers = () => {
                       pago ha vencido
                     </p>
                   </div>
-                  {blockedUsers.map(user => (
+                  {blockedUsers.map((user) => (
                     <Box
                       key={user._id}
                       sx={{
-                        display: 'flex',
-                        alignItems: 'center',
+                        display: "flex",
+                        alignItems: "center",
                         mb: 3,
                       }}
                     >
                       <Box
                         sx={{
                           minWidth: 38,
-                          display: 'flex',
-                          justifyContent: 'center',
+                          display: "flex",
+                          justifyContent: "center",
                         }}
                       >
                         🚫
@@ -89,23 +89,23 @@ const BlockedModalUsers = () => {
                       <Box
                         sx={{
                           ml: 2,
-                          width: '100%',
-                          display: 'flex',
-                          flexWrap: 'wrap',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
+                          width: "100%",
+                          display: "flex",
+                          flexWrap: "wrap",
+                          alignItems: "center",
+                          justifyContent: "space-between",
                         }}
                       >
                         <Box
                           sx={{
                             marginRight: 2,
-                            display: 'flex',
-                            flexDirection: 'column',
+                            display: "flex",
+                            flexDirection: "column",
                           }}
                         >
                           <Typography
                             className="text-purple-800"
-                            sx={{ fontWeight: 600, fontSize: '0.875rem' }}
+                            sx={{ fontWeight: 600, fontSize: "0.875rem" }}
                           >
                             {user.name} {user.lastName}
                           </Typography>
@@ -132,7 +132,7 @@ const BlockedModalUsers = () => {
         </Dialog>
       </Transition>
     </>
-  )
-}
+  );
+};
 
-export default BlockedModalUsers
+export default BlockedModalUsers;

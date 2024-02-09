@@ -1,24 +1,24 @@
-import { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
-import LibraryAddOutlinedIcon from '@mui/icons-material/LibraryAddOutlined'
-import PostAddOutlinedIcon from '@mui/icons-material/PostAddOutlined'
-import io from 'socket.io-client'
-import useMembers from '../hooks/useMembers'
-import useAdmin from '../hooks/useAdmin'
-import Loader from '../assets/files/Loader'
-import Assistance from '../components/Assistance'
-import Training from '../components/Training'
-import TrainingFormModal from '../components/Modals/TrainingFormModal'
-import DeleteTrainingModal from '../components/Modals/DeleteTrainingModal'
-import DeleteSecondaryTrainerModal from '../components/Modals/DeleteSecondaryTrainerModal'
-import SecondaryTrainer from '../components/SecondaryTrainer'
-import noImage from '../assets/misc/no-image.jpg'
+import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import LibraryAddOutlinedIcon from "@mui/icons-material/LibraryAddOutlined";
+import PostAddOutlinedIcon from "@mui/icons-material/PostAddOutlined";
+import io from "socket.io-client";
+import useMembers from "../hooks/useMembers";
+import useAdmin from "../hooks/useAdmin";
+import Loader from "../assets/files/Loader";
+import Assistance from "../components/Assistance";
+import Training from "../components/Training";
+import TrainingFormModal from "../components/Modals/TrainingFormModal";
+import DeleteTrainingModal from "../components/Modals/DeleteTrainingModal";
+import DeleteSecondaryTrainerModal from "../components/Modals/DeleteSecondaryTrainerModal";
+import SecondaryTrainer from "../components/SecondaryTrainer";
+import noImage from "../assets/misc/no-image.jpg";
 
-let socket
+let socket;
 
 const Member = () => {
-  const params = useParams()
+  const params = useParams();
   const {
     addAssistance,
     changeStatusTrainingMember,
@@ -29,41 +29,41 @@ const Member = () => {
     member,
     submitTrainingMember,
     updateTrainingMember,
-  } = useMembers()
-  const admin = useAdmin()
-  const { name, lastName, avatar } = member
+  } = useMembers();
+  const admin = useAdmin();
+  const { name, lastName, avatar } = member;
 
   useEffect(() => {
-    getMember(params.id)
-  }, [])
+    getMember(params.id);
+  }, []);
 
   useEffect(() => {
-    socket = io(import.meta.env.VITE_BACKEND_URL)
-    socket.emit('Open member', params.id)
-  }, [])
+    socket = io(import.meta.env.VITE_BACKEND_URL);
+    socket.emit("Open member", params.id);
+  }, []);
 
   useEffect(() => {
-    socket.on('added training', newTraining => {
+    socket.on("added training", (newTraining) => {
       if (newTraining.member === member._id) {
-        submitTrainingMember(newTraining)
+        submitTrainingMember(newTraining);
       }
-    })
-    socket.on('deleted training', deletedTraining => {
+    });
+    socket.on("deleted training", (deletedTraining) => {
       if (deletedTraining.member === member._id) {
-        deleteTrainingMember(deletedTraining)
+        deleteTrainingMember(deletedTraining);
       }
-    })
-    socket.on('updated training', updatedTraining => {
+    });
+    socket.on("updated training", (updatedTraining) => {
       if (updatedTraining.member._id === member._id) {
-        updateTrainingMember(updatedTraining)
+        updateTrainingMember(updatedTraining);
       }
-    })
-    socket.on('new status', newStatus => {
+    });
+    socket.on("new status", (newStatus) => {
       if (newStatus.member._id === member._id) {
-        changeStatusTrainingMember(newStatus)
+        changeStatusTrainingMember(newStatus);
       }
-    })
-  })
+    });
+  });
 
   return loading ? (
     <Loader />
@@ -89,9 +89,7 @@ const Member = () => {
           </Link>
         )}
       </div>
-      <p className="text-xl mt-5 text-purple-500">
-        Asistencias del usuario
-      </p>
+      <p className="text-xl mt-5 text-purple-500">Asistencias del usuario</p>
       <button
         type="button"
         onClick={() => addAssistance()}
@@ -122,7 +120,7 @@ const Member = () => {
       )}
       <div className="bg-white shadow mt-10 rounded-lg">
         {member.trainings?.length ? (
-          member.trainings?.map(training => (
+          member.trainings?.map((training) => (
             <Training key={training._id} training={training} />
           ))
         ) : (
@@ -146,7 +144,7 @@ const Member = () => {
           </div>
           <div className="bg-white shadow mt-10 rounded-lg">
             {member.secondaryTrainers?.length ? (
-              member.secondaryTrainers?.map(secondaryTrainer => (
+              member.secondaryTrainers?.map((secondaryTrainer) => (
                 <SecondaryTrainer
                   key={secondaryTrainer._id}
                   secondaryTrainer={secondaryTrainer}
@@ -164,7 +162,7 @@ const Member = () => {
       <DeleteTrainingModal />
       <DeleteSecondaryTrainerModal />
     </>
-  )
-}
+  );
+};
 
-export default Member
+export default Member;

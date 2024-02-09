@@ -1,39 +1,39 @@
-import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import Swal from 'sweetalert2'
-import axiosClient from '../config/axiosClient'
-import JuniorsLogo from '../assets/images/juniors-gym-logo.png'
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import axiosClient from "../config/axiosClient";
+import JuniorsLogo from "../assets/images/juniors-gym-logo.png";
 
 const ConfirmAccount = () => {
-  const [confirmedAccount, setConfirmedAccount] = useState(false)
-  const params = useParams()
-  const { id } = params
+  const [confirmedAccount, setConfirmedAccount] = useState(false);
+  const params = useParams();
+  const { id } = params;
 
   useEffect(() => {
     const confirmAccount = async () => {
       try {
-        const url = `/users/confirm/${id}`
-        const { data } = await axiosClient(url)
+        const url = `/users/confirm/${id}`;
+        const { data } = await axiosClient(url);
 
         Swal.fire({
-          title: 'Éxito!',
+          title: "Éxito!",
           text: data.msg,
           icon: success,
-          confirmButtonText: 'Reintentar',
-        })
+          confirmButtonText: "Reintentar",
+        });
 
-        setConfirmedAccount(true)
+        setConfirmedAccount(true);
       } catch (error) {
         Swal.fire({
-          title: 'Atención!',
+          title: "Atención!",
           text: error.response.data.msg,
-          icon: 'warning',
-          confirmButtonText: 'Cerrar',
-        })
+          icon: "warning",
+          confirmButtonText: "Cerrar",
+        });
       }
-    }
-    confirmAccount()
-  }, [])
+    };
+    confirmAccount();
+  }, []);
 
   return (
     <>
@@ -50,7 +50,7 @@ const ConfirmAccount = () => {
         Iniciar sesión
       </Link>
     </>
-  )
-}
+  );
+};
 
-export default ConfirmAccount
+export default ConfirmAccount;

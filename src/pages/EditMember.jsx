@@ -1,26 +1,26 @@
-import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined'
-import useMembers from '../hooks/useMembers'
-import Loader from '../assets/files/Loader'
-import MemberForm from '../components/Forms/MemberForm'
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+import useMembers from "../hooks/useMembers";
+import Loader from "../assets/files/Loader";
+import MemberForm from "../components/Forms/MemberForm";
 
 const EditMember = () => {
-  const params = useParams()
-  const { deleteMember, getMember, loading, member } = useMembers()
-  const { name, lastName } = member
+  const params = useParams();
+  const { deleteMember, getMember, loading, member } = useMembers();
+  const { name, lastName } = member;
 
   useEffect(() => {
-    getMember(params.id)
-  }, [])
+    getMember(params.id);
+  }, []);
 
-  if (loading) return <Loader />
+  if (loading) return <Loader />;
 
   const handleClick = () => {
-    if (confirm('Deseas eliminar este usuario?')) {
-      deleteMember(params.id)
+    if (confirm("Deseas eliminar este usuario?")) {
+      deleteMember(params.id);
     }
-  }
+  };
 
   return (
     <>
@@ -29,7 +29,7 @@ const EditMember = () => {
           {name} {lastName}
         </h1>
         <div className="text-yellow-300 hover:text-purple-600 flex items-center gap-2">
-          <DeleteForeverOutlinedIcon />{' '}
+          <DeleteForeverOutlinedIcon />{" "}
           <button onClick={handleClick}>Eliminar usuario</button>
         </div>
       </div>
@@ -37,7 +37,7 @@ const EditMember = () => {
         <MemberForm />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default EditMember
+export default EditMember;

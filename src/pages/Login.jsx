@@ -1,62 +1,62 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FormControl,
   IconButton,
   InputAdornment,
   InputLabel,
   OutlinedInput,
-} from '@mui/material'
-import EmailIcon from '@mui/icons-material/Email'
-import Visibility from '@mui/icons-material/Visibility'
-import VisibilityOff from '@mui/icons-material/VisibilityOff'
-import Swal from 'sweetalert2'
-import axiosClient from '../config/axiosClient'
-import useAuth from '../hooks/useAuth'
-import JuniorsLogo from '../assets/images/juniors-gym-logo.png'
+} from "@mui/material";
+import EmailIcon from "@mui/icons-material/Email";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import Swal from "sweetalert2";
+import axiosClient from "../config/axiosClient";
+import useAuth from "../hooks/useAuth";
+import JuniorsLogo from "../assets/images/juniors-gym-logo.png";
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState(false)
-  const handleClickShowPassword = () => setShowPassword(show => !show)
-  const handleMouseDownPassword = event => {
-    event.preventDefault()
-  }
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const { setAuth } = useAuth()
-  const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { setAuth } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = async e => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    if ([email, password].includes('')) {
+    if ([email, password].includes("")) {
       Swal.fire({
-        title: 'Atención!',
-        text: 'Todos los campos son obligatorios',
-        icon: 'warning',
-        confirmButtonText: 'Reintentar',
-      })
-      return
+        title: "Atención!",
+        text: "Todos los campos son obligatorios",
+        icon: "warning",
+        confirmButtonText: "Reintentar",
+      });
+      return;
     }
 
     try {
-      const { data } = await axiosClient.post('/users/login', {
+      const { data } = await axiosClient.post("/users/login", {
         email,
         password,
-      })
+      });
 
-      localStorage.setItem('token', data.token)
-      setAuth(data)
-      navigate('/admin')
+      localStorage.setItem("token", data.token);
+      setAuth(data);
+      navigate("/admin");
     } catch (error) {
       Swal.fire({
-        title: 'Atención!',
+        title: "Atención!",
         text: error.response.data.msg,
-        icon: 'error',
-        confirmButtonText: 'Reintentar',
-      })
+        icon: "error",
+        confirmButtonText: "Reintentar",
+      });
     }
-  }
+  };
 
   return (
     <>
@@ -71,24 +71,24 @@ const Login = () => {
         className="bg-white my-10 shadow-yellow-400 rounded-lg p-10"
         onSubmit={handleSubmit}
       >
-        <FormControl sx={{ width: '100%' }}>
+        <FormControl sx={{ width: "100%" }}>
           <InputLabel htmlFor="email">Email</InputLabel>
           <OutlinedInput
             endAdornment={
-              <InputAdornment position="end" sx={{ color: '#6b21a8' }}>
+              <InputAdornment position="end" sx={{ color: "#6b21a8" }}>
                 <EmailIcon />
               </InputAdornment>
             }
             id="email"
             label="Email"
-            onChange={e => setEmail(e.target.value)}
-            sx={{ label: { color: '#6b21a8' } }}
+            onChange={(e) => setEmail(e.target.value)}
+            sx={{ label: { color: "#6b21a8" } }}
             type="text"
             value={email}
           />
         </FormControl>
 
-        <FormControl sx={{ width: '100%', mt: 3 }}>
+        <FormControl sx={{ width: "100%", mt: 3 }}>
           <InputLabel htmlFor="password">Password</InputLabel>
           <OutlinedInput
             endAdornment={
@@ -97,15 +97,15 @@ const Login = () => {
                   aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
-                  sx={{ color: '#6b21a8' }}
+                  sx={{ color: "#6b21a8" }}
                 >
                   {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             }
             id="password"
-            onChange={e => setPassword(e.target.value)}
-            type={showPassword ? 'text' : 'password'}
+            onChange={(e) => setPassword(e.target.value)}
+            type={showPassword ? "text" : "password"}
             value={password}
           />
         </FormControl>
@@ -139,7 +139,7 @@ const Login = () => {
         </Link>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

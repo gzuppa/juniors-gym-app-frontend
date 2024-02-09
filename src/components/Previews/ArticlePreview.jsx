@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const ArticlePreview = ({ article }) => {
-  const { name, description, price, _id } = article
+  const { name, description, price, _id } = article;
 
   return (
     <div className="border-b p-5 flex justify-between items-center font-raleway">
@@ -19,7 +19,7 @@ const ArticlePreview = ({ article }) => {
         Ver detalles
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default ArticlePreview
+export default ArticlePreview;

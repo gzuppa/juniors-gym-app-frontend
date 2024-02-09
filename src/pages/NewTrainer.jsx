@@ -1,18 +1,18 @@
-import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import useMembers from '../hooks/useMembers'
-import TrainerForm from '../components/Forms/TrainerForm'
-import Loader from '../assets/files/Loader'
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import useMembers from "../hooks/useMembers";
+import TrainerForm from "../components/Forms/TrainerForm";
+import Loader from "../assets/files/Loader";
 
 const NewTrainer = () => {
-  const { addTrainer, getMember, loading, member, trainer } = useMembers()
-  const params = useParams()
+  const { addTrainer, getMember, loading, member, trainer } = useMembers();
+  const params = useParams();
 
   useEffect(() => {
-    getMember(params.id)
-  }, [])
+    getMember(params.id);
+  }, []);
 
-  if (loading) return <Loader />
+  if (loading) return <Loader />;
 
   return (
     <>
@@ -53,7 +53,7 @@ const NewTrainer = () => {
         )
       )}
     </>
-  )
-}
+  );
+};
 
-export default NewTrainer
+export default NewTrainer;

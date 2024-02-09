@@ -1,13 +1,13 @@
-import { Navigate, Outlet } from 'react-router-dom'
-import useAuth from '../hooks/useAuth'
-import Loader from '../assets/files/Loader'
-import Sidebar from '../components/Sidebar'
-import Header from '../components/Header'
+import { Navigate, Outlet } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import Loader from "../assets/files/Loader";
+import Sidebar from "../components/Sidebar";
+import Header from "../components/Header";
 
 const ProtectedRoute = () => {
-  const { auth, loading } = useAuth()
+  const { auth, loading } = useAuth();
 
-  if (loading) return <Loader />
+  if (loading) return <Loader />;
 
   return (
     <>
@@ -25,7 +25,7 @@ const ProtectedRoute = () => {
         <Navigate to="/" />
       )}
     </>
-  )
-}
+  );
+};
 
-export default ProtectedRoute
+export default ProtectedRoute;

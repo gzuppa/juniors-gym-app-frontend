@@ -1,8 +1,8 @@
-import { useContext } from 'react'
-import MemberContext from '../context/MemberProvider'
+import { useContext } from "react";
+import MemberContext from "../context/MemberProvider";
 
 const useMembers = () => {
-  return useContext(MemberContext)
-}
+  return useContext(MemberContext);
+};
 
-export default useMembers
+export default useMembers;

@@ -1,52 +1,52 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FormControl,
   InputAdornment,
   InputLabel,
   OutlinedInput,
-} from '@mui/material'
-import EmailIcon from '@mui/icons-material/Email'
-import Swal from 'sweetalert2'
-import axiosClient from '../config/axiosClient'
-import JuniorsLogo from '../assets/images/juniors-gym-logo.png'
+} from "@mui/material";
+import EmailIcon from "@mui/icons-material/Email";
+import Swal from "sweetalert2";
+import axiosClient from "../config/axiosClient";
+import JuniorsLogo from "../assets/images/juniors-gym-logo.png";
 
 const ForgotPassword = () => {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState("");
 
-  const handleSubmit = async e => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    if (email === '' || email.length < 6) {
+    if (email === "" || email.length < 6) {
       Swal.fire({
-        title: 'Atención!',
-        text: 'El email no puede ir vacío',
-        icon: 'warning',
-        confirmButtonText: 'Reintentar',
-      })
-      return
+        title: "Atención!",
+        text: "El email no puede ir vacío",
+        icon: "warning",
+        confirmButtonText: "Reintentar",
+      });
+      return;
     }
 
     try {
-      const { data } = await axiosClient.post('/users/forgot-password', {
+      const { data } = await axiosClient.post("/users/forgot-password", {
         email,
-      })
+      });
 
       Swal.fire({
-        title: 'Éxito!',
+        title: "Éxito!",
         text: data.msg,
-        icon: 'success',
-        confirmButtonText: 'Cerrar',
-      })
+        icon: "success",
+        confirmButtonText: "Cerrar",
+      });
     } catch (error) {
       Swal.fire({
-        title: 'Atención!',
+        title: "Atención!",
         text: error.response.data.msg,
-        icon: 'warning',
-        confirmButtonText: 'Reintentar',
-      })
+        icon: "warning",
+        confirmButtonText: "Reintentar",
+      });
     }
-  }
+  };
 
   return (
     <>
@@ -61,18 +61,18 @@ const ForgotPassword = () => {
         className="bg-white my-10 shadow-yellow-400 rounded-lg p-10"
         onSubmit={handleSubmit}
       >
-        <FormControl sx={{ width: '100%', mt: 3 }}>
+        <FormControl sx={{ width: "100%", mt: 3 }}>
           <InputLabel htmlFor="email">Email</InputLabel>
           <OutlinedInput
             endAdornment={
-              <InputAdornment position="end" sx={{ color: '#6b21a8' }}>
+              <InputAdornment position="end" sx={{ color: "#6b21a8" }}>
                 <EmailIcon />
               </InputAdornment>
             }
             id="email"
             label="Email"
-            sx={{ label: { color: '#6b21a8' } }}
-            onChange={e => setEmail(e.target.value)}
+            sx={{ label: { color: "#6b21a8" } }}
+            onChange={(e) => setEmail(e.target.value)}
             type="text"
             value={email}
           />
@@ -100,7 +100,7 @@ const ForgotPassword = () => {
         </Link>
       </nav>
     </>
-  )
-}
+  );
+};
 
-export default ForgotPassword
+export default ForgotPassword;

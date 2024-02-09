@@ -1,22 +1,22 @@
-import WhatsappSend from '../config/WhatsappSend'
-import useMembers from '../hooks/useMembers'
-import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined'
-import SupervisedUserCircleOutlinedIcon from '@mui/icons-material/SupervisedUserCircleOutlined'
-import WhatsAppIcon from '@mui/icons-material/WhatsApp'
+import WhatsappSend from "../config/WhatsappSend";
+import useMembers from "../hooks/useMembers";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import SupervisedUserCircleOutlinedIcon from "@mui/icons-material/SupervisedUserCircleOutlined";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const WhatsappReminder = () => {
-  const { allMembers } = useMembers()
+  const { allMembers } = useMembers();
 
-  const blockedUsers = allMembers.filter(element => {
-    return element.status === 'Bloqueado'
-  })
-  const payPendingUsers = allMembers.filter(element => {
-    return element.status === 'Por pagar'
-  })
+  const blockedUsers = allMembers.filter((element) => {
+    return element.status === "Bloqueado";
+  });
+  const payPendingUsers = allMembers.filter((element) => {
+    return element.status === "Por pagar";
+  });
 
-  console.log(blockedUsers)
+  console.log(blockedUsers);
 
-  const DataBlock = props => {
+  const DataBlock = (props) => {
     return (
       <div className="flex items-center justify-between border-b p-3 text-lg">
         <div className="flex items-center">
@@ -45,8 +45,8 @@ const WhatsappReminder = () => {
           </WhatsappSend>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div className="font-raleway ">
@@ -61,13 +61,13 @@ const WhatsappReminder = () => {
         Usuarios que superaron su fecha de pago ⛔
       </p>
       <section className="bg-white rounded-lg py-5 px-5">
-        {blockedUsers.map(user => (
+        {blockedUsers.map((user) => (
           <DataBlock
             name={user.name}
             lastName={user.lastName}
             phone={user.phone}
-            payDate={user.payDate.split('T')[0]}
-            message={`Estimado usuario: ${user.name} ${user.lastName}, la fecha de pago de tu mensualidad venció el día ${user.payDate.split('T')[0]}. Por favor, realiza el pago correspondiente para continuar tus entrenamientos. Junior's Gym`}
+            payDate={user.payDate.split("T")[0]}
+            message={`Estimado usuario: ${user.name} ${user.lastName}, la fecha de pago de tu mensualidad venció el día ${user.payDate.split("T")[0]}. Por favor, realiza el pago correspondiente para continuar tus entrenamientos. Junior's Gym`}
           />
         ))}
       </section>
@@ -76,18 +76,18 @@ const WhatsappReminder = () => {
         Usuarios que están próximos a superar su fecha de pago ⚠️
       </p>
       <section className="bg-white rounded-lg py-5 px-5 mt-8">
-        {payPendingUsers.map(user => (
+        {payPendingUsers.map((user) => (
           <DataBlock
             name={user.name}
             lastName={user.lastName}
             phone={user.phone}
-            payDate={user.payDate.split('T')[0]}
-            message={`Estimado usuario: ${user.name} ${user.lastName}, la fecha de vencimiento de tu mensualidad se acerca. Realiza tu pago antes del ${user.payDate.split('T')[0]} para continuar tus entrenamientos. Junior's Gym`}
+            payDate={user.payDate.split("T")[0]}
+            message={`Estimado usuario: ${user.name} ${user.lastName}, la fecha de vencimiento de tu mensualidad se acerca. Realiza tu pago antes del ${user.payDate.split("T")[0]} para continuar tus entrenamientos. Junior's Gym`}
           />
         ))}
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default WhatsappReminder
+export default WhatsappReminder;

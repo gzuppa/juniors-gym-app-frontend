@@ -1,20 +1,20 @@
-import LibraryAddOutlinedIcon from '@mui/icons-material/LibraryAddOutlined'
-import useMembers from '../hooks/useMembers'
-import NewWarehouseArticleModal from '../components/Modals/NewWarehouseArticleModal'
-import ArticlePreview from '../components/Previews/ArticlePreview'
+import LibraryAddOutlinedIcon from "@mui/icons-material/LibraryAddOutlined";
+import useMembers from "../hooks/useMembers";
+import NewWarehouseArticleModal from "../components/Modals/NewWarehouseArticleModal";
+import ArticlePreview from "../components/Previews/ArticlePreview";
 
 const Warehouse = () => {
-  const { allArticles, handleNewWarehouseArticleModal } = useMembers()
+  const { allArticles, handleNewWarehouseArticleModal } = useMembers();
 
-  const machines = allArticles.filter(element => {
-    return element.type === 'Aparato'
-  })
-  const miscelaneous = allArticles.filter(element => {
-    return element.type === 'Mercancía'
-  })
-  const other = allArticles.filter(element => {
-    return element.type === 'Otro'
-  })
+  const machines = allArticles.filter((element) => {
+    return element.type === "Aparato";
+  });
+  const miscelaneous = allArticles.filter((element) => {
+    return element.type === "Mercancía";
+  });
+  const other = allArticles.filter((element) => {
+    return element.type === "Otro";
+  });
 
   return (
     <>
@@ -34,7 +34,7 @@ const Warehouse = () => {
       </h1>
       <div className="bg-white shadow mt-5 rounded-lg">
         {machines.length ? (
-          machines.map(article => (
+          machines.map((article) => (
             <ArticlePreview key={article._id} article={article} />
           ))
         ) : (
@@ -48,7 +48,7 @@ const Warehouse = () => {
       </h1>
       <div className="bg-white shadow mt-5 rounded-lg">
         {miscelaneous.length ? (
-          miscelaneous.map(article => (
+          miscelaneous.map((article) => (
             <ArticlePreview key={article._id} article={article} />
           ))
         ) : (
@@ -62,7 +62,7 @@ const Warehouse = () => {
       </h1>
       <div className="bg-white shadow mt-5 rounded-lg">
         {other.length ? (
-          other.map(article => (
+          other.map((article) => (
             <ArticlePreview key={article._id} article={article} />
           ))
         ) : (
@@ -73,7 +73,7 @@ const Warehouse = () => {
       </div>
       <NewWarehouseArticleModal />
     </>
-  )
-}
+  );
+};
 
-export default Warehouse
+export default Warehouse;

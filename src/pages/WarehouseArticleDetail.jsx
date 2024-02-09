@@ -1,16 +1,16 @@
-import { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
-import Loader from '../assets/files/Loader'
-import useMembers from '../hooks/useMembers'
+import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import Loader from "../assets/files/Loader";
+import useMembers from "../hooks/useMembers";
 
 const WarehouseArticleDetail = () => {
-  const params = useParams()
-  const { article, getArticle, loading } = useMembers()
+  const params = useParams();
+  const { article, getArticle, loading } = useMembers();
 
   useEffect(() => {
-    getArticle(params.id)
-  }, [])
+    getArticle(params.id);
+  }, []);
 
   return loading ? (
     <Loader />
@@ -60,7 +60,7 @@ const WarehouseArticleDetail = () => {
               </div>
               <div className="mr-4 mt-3">
                 <span className="font-bold text-purple-800">
-                  Cantidad en stock:{' '}
+                  Cantidad en stock:{" "}
                 </span>
                 <span className="text-purple-800">{article.stock}</span>
               </div>
@@ -83,7 +83,7 @@ const WarehouseArticleDetail = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default WarehouseArticleDetail
+export default WarehouseArticleDetail;

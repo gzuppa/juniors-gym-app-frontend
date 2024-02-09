@@ -1,8 +1,8 @@
-import useMembers from '../hooks/useMembers'
+import useMembers from "../hooks/useMembers";
 
 const SecondaryTrainer = ({ secondaryTrainer }) => {
-  const { name, email } = secondaryTrainer
-  const { handleDeleteSecondaryTrainerModal } = useMembers()
+  const { name, email } = secondaryTrainer;
+  const { handleDeleteSecondaryTrainerModal } = useMembers();
 
   return (
     <div className="border-b p-5 flex justify-between items-center font-raleway">
@@ -20,7 +20,7 @@ const SecondaryTrainer = ({ secondaryTrainer }) => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SecondaryTrainer
+export default SecondaryTrainer;

@@ -1,5 +1,5 @@
-import { Fragment, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Fragment, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   FormControl,
   Grid,
@@ -10,51 +10,51 @@ import {
   OutlinedInput,
   Select,
   Tooltip,
-} from '@mui/material'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import { DemoItem } from '@mui/x-date-pickers/internals/demo'
-import AppRegistrationOutlinedIcon from '@mui/icons-material/AppRegistrationOutlined'
-import LiveHelpIcon from '@mui/icons-material/LiveHelp'
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined'
-import { Dialog, Transition } from '@headlessui/react'
-import Swal from 'sweetalert2'
-import useMembers from '../../hooks/useMembers'
+} from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { DemoItem } from "@mui/x-date-pickers/internals/demo";
+import AppRegistrationOutlinedIcon from "@mui/icons-material/AppRegistrationOutlined";
+import LiveHelpIcon from "@mui/icons-material/LiveHelp";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import { Dialog, Transition } from "@headlessui/react";
+import Swal from "sweetalert2";
+import useMembers from "../../hooks/useMembers";
 
 const TrainingFormModal = () => {
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [startDate, setStartDate] = useState('')
-  const [level, setLevel] = useState('')
-  const [id, setId] = useState('')
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [level, setLevel] = useState("");
+  const [id, setId] = useState("");
   const { handleTrainingModal, training, submitTraining, trainingModal } =
-    useMembers()
-  const params = useParams()
+    useMembers();
+  const params = useParams();
 
   useEffect(() => {
     if (training?._id) {
-      setId(training._id)
-      setName(training.name)
-      setDescription(training.description)
-      setLevel(training.level)
-      return
+      setId(training._id);
+      setName(training.name);
+      setDescription(training.description);
+      setLevel(training.level);
+      return;
     }
-    setId('')
-    setName('')
-    setDescription('')
-    setLevel('')
-  }, [training])
+    setId("");
+    setName("");
+    setDescription("");
+    setLevel("");
+  }, [training]);
 
-  const handleSubmit = async e => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    if ([name, description, startDate, level].includes('')) {
+    if ([name, description, startDate, level].includes("")) {
       Swal.fire({
-        title: 'Atención!',
-        text: 'Todos los campos son obligatorios',
-        icon: 'warning',
-        confirmButtonText: 'Reintentar',
-      })
-      return
+        title: "Atención!",
+        text: "Todos los campos son obligatorios",
+        icon: "warning",
+        confirmButtonText: "Reintentar",
+      });
+      return;
     }
     await submitTraining({
       id,
@@ -63,13 +63,13 @@ const TrainingFormModal = () => {
       startDate,
       level,
       member: params.id,
-    })
-    setId('')
-    setName('')
-    setDescription('')
-    setStartDate('')
-    setLevel('')
-  }
+    });
+    setId("");
+    setName("");
+    setDescription("");
+    setStartDate("");
+    setLevel("");
+  };
 
   return (
     <Transition.Root show={trainingModal} as={Fragment}>
@@ -125,10 +125,10 @@ const TrainingFormModal = () => {
                     as="h3"
                     className="text-xl leading-6 font-bold text-purple-800"
                   >
-                    {id ? 'Editar entrenamiento' : 'Crear entrenamiento'}
+                    {id ? "Editar entrenamiento" : "Crear entrenamiento"}
                   </Dialog.Title>
                   <form className="my-10" onSubmit={handleSubmit}>
-                    <FormControl sx={{ width: '100%' }}>
+                    <FormControl sx={{ width: "100%" }}>
                       <InputLabel htmlFor="name">
                         Nombre del entrenamiento
                       </InputLabel>
@@ -136,21 +136,21 @@ const TrainingFormModal = () => {
                         endAdornment={
                           <InputAdornment
                             position="end"
-                            sx={{ color: '#6b21a8' }}
+                            sx={{ color: "#6b21a8" }}
                           >
                             <AppRegistrationOutlinedIcon />
                           </InputAdornment>
                         }
                         id="name"
                         label="Nombre del entrenamiento"
-                        onChange={e => setName(e.target.value)}
-                        sx={{ label: { color: '#6b21a8' } }}
+                        onChange={(e) => setName(e.target.value)}
+                        sx={{ label: { color: "#6b21a8" } }}
                         type="text"
                         value={name}
                       />
                     </FormControl>
 
-                    <FormControl sx={{ width: '100%', mt: 3 }}>
+                    <FormControl sx={{ width: "100%", mt: 3 }}>
                       <InputLabel htmlFor="name">
                         Descripción del entrenamiento
                       </InputLabel>
@@ -158,34 +158,34 @@ const TrainingFormModal = () => {
                         endAdornment={
                           <InputAdornment
                             position="end"
-                            sx={{ color: '#6b21a8' }}
+                            sx={{ color: "#6b21a8" }}
                           >
                             <AppRegistrationOutlinedIcon />
                           </InputAdornment>
                         }
                         id="description"
                         label="Descripción del entrenamiento"
-                        onChange={e => setDescription(e.target.value)}
-                        sx={{ label: { color: '#6b21a8' } }}
+                        onChange={(e) => setDescription(e.target.value)}
+                        sx={{ label: { color: "#6b21a8" } }}
                         type="text"
                         value={description}
                       />
                     </FormControl>
 
-                    <FormControl sx={{ width: '100%', mt: 3 }}>
+                    <FormControl sx={{ width: "100%", mt: 3 }}>
                       <DemoItem
                         label={
                           <Grid
                             container
                             spacing={1}
-                            sx={{ ml: 1, alignItems: 'center' }}
+                            sx={{ ml: 1, alignItems: "center" }}
                           >
                             <p>Fecha de inicio de entrenamiento</p>
                             <Tooltip title="Puede ser editable o terminada al momento de cambiar status">
                               <IconButton>
                                 <LiveHelpIcon
                                   fontSize="small"
-                                  sx={{ color: '#6b21a8' }}
+                                  sx={{ color: "#6b21a8" }}
                                 />
                               </IconButton>
                             </Tooltip>
@@ -194,15 +194,15 @@ const TrainingFormModal = () => {
                       >
                         <DatePicker
                           value={startDate}
-                          onChange={newValue => setStartDate(newValue)}
+                          onChange={(newValue) => setStartDate(newValue)}
                         />
                       </DemoItem>
                     </FormControl>
 
-                    <FormControl sx={{ width: '100%', mt: 3 }}>
+                    <FormControl sx={{ width: "100%", mt: 3 }}>
                       <InputLabel
                         id="level"
-                        sx={{ mb: '12px', fontSize: '0.875rem' }}
+                        sx={{ mb: "12px", fontSize: "0.875rem" }}
                       >
                         Nivel del entrenamiento
                       </InputLabel>
@@ -212,19 +212,19 @@ const TrainingFormModal = () => {
                         id="level"
                         value={level}
                         label="Nivel del entrenamiento"
-                        onChange={e => setLevel(e.target.value)}
+                        onChange={(e) => setLevel(e.target.value)}
                       >
-                        <MenuItem value={'Principiante'}>Principiante</MenuItem>
-                        <MenuItem value={'Intermedio'}>Intermedio</MenuItem>
-                        <MenuItem value={'Avanzado'}>Avanzado</MenuItem>
-                        <MenuItem value={'Alto Nivel'}>Alto Nivel</MenuItem>
+                        <MenuItem value={"Principiante"}>Principiante</MenuItem>
+                        <MenuItem value={"Intermedio"}>Intermedio</MenuItem>
+                        <MenuItem value={"Avanzado"}>Avanzado</MenuItem>
+                        <MenuItem value={"Alto Nivel"}>Alto Nivel</MenuItem>
                       </Select>
                     </FormControl>
                     <input
                       type="submit"
                       className="px-10 font-medium text-white py-2.5 bg-gradient-to-r whitespace-nowrap from-purple-950 to-purple-200 rounded-lg cursor-pointer font-raleway w-full mt-10"
                       value={
-                        id ? 'Editar entrenamiento' : 'Crear entrenamiento'
+                        id ? "Editar entrenamiento" : "Crear entrenamiento"
                       }
                     />
                   </form>
@@ -235,7 +235,7 @@ const TrainingFormModal = () => {
         </div>
       </Dialog>
     </Transition.Root>
-  )
-}
+  );
+};
 
-export default TrainingFormModal
+export default TrainingFormModal;

@@ -1,4 +1,4 @@
-import MemberForm from '../components/Forms/MemberForm'
+import MemberForm from "../components/Forms/MemberForm";
 
 const NewMember = () => {
   return (
@@ -10,7 +10,7 @@ const NewMember = () => {
         <MemberForm />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default NewMember
+export default NewMember;

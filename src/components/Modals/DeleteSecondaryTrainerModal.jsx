@@ -1,14 +1,14 @@
-import { Fragment } from 'react'
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined'
-import { Dialog, Transition } from '@headlessui/react'
-import useMembers from '../../hooks/useMembers'
+import { Fragment } from "react";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import { Dialog, Transition } from "@headlessui/react";
+import useMembers from "../../hooks/useMembers";
 
 const DeleteSecondaryTrainerModal = () => {
   const {
     deleteSecondaryTrainer,
     deleteSecondaryTrainerModal,
     handleDeleteSecondaryTrainerModal,
-  } = useMembers()
+  } = useMembers();
 
   return (
     <Transition.Root show={deleteSecondaryTrainerModal} as={Fragment}>
@@ -101,7 +101,7 @@ const DeleteSecondaryTrainerModal = () => {
                   className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-purple-800 hover:text-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
                   onClick={handleDeleteSecondaryTrainerModal}
                 >
-                  {' '}
+                  {" "}
                   Cancelar
                 </button>
               </div>
@@ -110,7 +110,7 @@ const DeleteSecondaryTrainerModal = () => {
         </div>
       </Dialog>
     </Transition.Root>
-  )
-}
+  );
+};
 
-export default DeleteSecondaryTrainerModal
+export default DeleteSecondaryTrainerModal;

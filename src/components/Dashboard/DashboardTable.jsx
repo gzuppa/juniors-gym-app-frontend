@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Box,
   Card,
@@ -11,28 +11,28 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from '@mui/material'
-import TablePagination from '@mui/material/TablePagination'
-import DangerousIcon from '@mui/icons-material/Dangerous'
-import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike'
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter'
-import MoneyOffIcon from '@mui/icons-material/MoneyOff'
-import PriceCheckIcon from '@mui/icons-material/PriceCheck'
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
-import useMembers from '../../hooks/useMembers'
+} from "@mui/material";
+import TablePagination from "@mui/material/TablePagination";
+import DangerousIcon from "@mui/icons-material/Dangerous";
+import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import MoneyOffIcon from "@mui/icons-material/MoneyOff";
+import PriceCheckIcon from "@mui/icons-material/PriceCheck";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import useMembers from "../../hooks/useMembers";
 
 const DashboardTable = () => {
-  const { allMembers } = useMembers()
-  const [rowPage, setRowPage] = useState(5)
-  const [page, setPage] = useState(0)
+  const { allMembers } = useMembers();
+  const [rowPage, setRowPage] = useState(5);
+  const [page, setPage] = useState(0);
   const handleChangePage = (event, newpage) => {
-    setPage(newpage)
-  }
+    setPage(newpage);
+  };
   const handleChangeRowsPerPage = (event, newpage) => {
-    setRowPage(parseInt(event.target.value, 10))
-    setPage(0)
-  }
+    setRowPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   return (
     <Card>
@@ -78,18 +78,18 @@ const DashboardTable = () => {
             <TableBody>
               {allMembers
                 .slice(page * rowPage, page * rowPage + rowPage)
-                .map(members => (
+                .map((members) => (
                   <TableRow
                     hover
                     key={members.name}
                     sx={{
-                      '&:last-of-type td, &:last-of-type th': { border: 0 },
+                      "&:last-of-type td, &:last-of-type th": { border: 0 },
                     }}
                   >
                     <TableCell
-                      sx={{ py: theme => `${theme.spacing(0.5)} !important` }}
+                      sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}
                     >
-                      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                      <Box sx={{ display: "flex", flexDirection: "column" }}>
                         <p className="font-raleway">{members.name}</p>
                       </Box>
                     </TableCell>
@@ -101,20 +101,20 @@ const DashboardTable = () => {
                         label={members.memberLevel}
                         size="small"
                         color={
-                          members.memberLevel === 'Principiante'
-                            ? 'info'
-                            : members.memberLevel === 'Intermedio'
-                              ? 'secondary'
-                              : members.memberLevel === 'Avanzado'
-                                ? 'error'
-                                : 'success'
+                          members.memberLevel === "Principiante"
+                            ? "info"
+                            : members.memberLevel === "Intermedio"
+                              ? "secondary"
+                              : members.memberLevel === "Avanzado"
+                                ? "error"
+                                : "success"
                         }
                         icon={
-                          members.memberLevel === 'Principiante' ? (
+                          members.memberLevel === "Principiante" ? (
                             <DirectionsBikeIcon />
-                          ) : members.memberLevel === 'Intermedio' ? (
+                          ) : members.memberLevel === "Intermedio" ? (
                             <FitnessCenterIcon />
-                          ) : members.memberLevel === 'Avanzado' ? (
+                          ) : members.memberLevel === "Avanzado" ? (
                             <EmojiEventsIcon />
                           ) : (
                             <PriceCheckIcon />
@@ -127,20 +127,20 @@ const DashboardTable = () => {
                         label={members.status}
                         size="small"
                         color={
-                          members.status === 'Pagado'
-                            ? 'info'
-                            : members.status === 'Por pagar'
-                              ? 'secondary'
-                              : members.status === 'Bloqueado'
-                                ? 'error'
-                                : 'success'
+                          members.status === "Pagado"
+                            ? "info"
+                            : members.status === "Por pagar"
+                              ? "secondary"
+                              : members.status === "Bloqueado"
+                                ? "error"
+                                : "success"
                         }
                         icon={
-                          members.status === 'Pagado' ? (
+                          members.status === "Pagado" ? (
                             <PriceCheckIcon />
-                          ) : members.status === 'Por pagar' ? (
+                          ) : members.status === "Por pagar" ? (
                             <MoneyOffIcon />
-                          ) : members.status === 'Bloqueado' ? (
+                          ) : members.status === "Bloqueado" ? (
                             <DangerousIcon />
                           ) : (
                             <PriceCheckIcon />
@@ -172,11 +172,11 @@ const DashboardTable = () => {
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
-          labelRowsPerPage={'Usuarios por página'}
+          labelRowsPerPage={"Usuarios por página"}
         />
       </Paper>
     </Card>
-  )
-}
+  );
+};
 
-export default DashboardTable
+export default DashboardTable;

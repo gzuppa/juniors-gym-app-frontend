@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react";
 import {
   Box,
   Paper,
@@ -8,19 +8,19 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from '@mui/material'
-import TablePagination from '@mui/material/TablePagination'
+} from "@mui/material";
+import TablePagination from "@mui/material/TablePagination";
 
 const Assistance = ({ assistance }) => {
-  const [rowPage, setRowPage] = useState(5)
-  const [page, setPage] = useState(0)
+  const [rowPage, setRowPage] = useState(5);
+  const [page, setPage] = useState(0);
   const handleChangePage = (event, newpage) => {
-    setPage(newpage)
-  }
+    setPage(newpage);
+  };
   const handleChangeRowsPerPage = (event, newpage) => {
-    setRowPage(parseInt(event.target.value, 10))
-    setPage(0)
-  }
+    setRowPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   return (
     <>
@@ -47,40 +47,40 @@ const Assistance = ({ assistance }) => {
           <TableBody>
             {assistance
               .slice(page * rowPage, page * rowPage + rowPage)
-              .map(assistanceRegister => (
+              .map((assistanceRegister) => (
                 <TableRow
                   hover
                   key={assistance}
-                  sx={{ '&:last-of-type td, &:last-of-type th': { border: 0 } }}
+                  sx={{ "&:last-of-type td, &:last-of-type th": { border: 0 } }}
                 >
                   <TableCell
-                    sx={{ py: theme => `${theme.spacing(0.5)} !important` }}
+                    sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}
                   >
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ display: "flex", flexDirection: "column" }}>
                       <p className="font-raleway">
                         {assistanceRegister
-                          .split(',')[0]
-                          .replace('/1', ' / Enero ')
+                          .split(",")[0]
+                          .replace("/1", " / Enero ")
                           // .replace('/2', ' / Febrero ')
-                          .replace('/3', ' / Marzo ')
-                          .replace('/4', ' / Abril ')
-                          .replace('/5', ' / Mayo ')
-                          .replace('/6', ' / Junio ')
-                          .replace('/7', ' / Julio ')
-                          .replace('/8', ' / Agosto ')
-                          .replace('/9', ' / Septiembre ')
-                          .replace('/10', ' / Octubre ')
-                          .replace('/11', ' / Noviembre ')
-                          .replace('/12', ' / Diciembre ')}
+                          .replace("/3", " / Marzo ")
+                          .replace("/4", " / Abril ")
+                          .replace("/5", " / Mayo ")
+                          .replace("/6", " / Junio ")
+                          .replace("/7", " / Julio ")
+                          .replace("/8", " / Agosto ")
+                          .replace("/9", " / Septiembre ")
+                          .replace("/10", " / Octubre ")
+                          .replace("/11", " / Noviembre ")
+                          .replace("/12", " / Diciembre ")}
                       </p>
                     </Box>
                   </TableCell>
                   <TableCell
-                    sx={{ py: theme => `${theme.spacing(0.5)} !important` }}
+                    sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}
                   >
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ display: "flex", flexDirection: "column" }}>
                       <p className="font-raleway">
-                        {assistanceRegister.split(',')[1]}
+                        {assistanceRegister.split(",")[1]}
                       </p>
                     </Box>
                   </TableCell>
@@ -97,10 +97,10 @@ const Assistance = ({ assistance }) => {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
-        labelRowsPerPage={'Registros por página'}
+        labelRowsPerPage={"Registros por página"}
       />
     </>
-  )
-}
+  );
+};
 
-export default Assistance
+export default Assistance;
