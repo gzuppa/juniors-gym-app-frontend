@@ -94,7 +94,7 @@ const MemberProvider = ({ children }) => {
   }, [auth]);
 
   useEffect(() => {
-    socket = io(import.meta.env.VITE_BACKEND_URL);
+    socket = io('https://juniors-gym-app-backend-dev-ktbd.2.us-1.fl0.io');
   }, []);
 
   const submitMember = async (member) => {

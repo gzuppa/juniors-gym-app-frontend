@@ -38,7 +38,7 @@ const Member = () => {
   }, []);
 
   useEffect(() => {
-    socket = io(import.meta.env.VITE_BACKEND_URL);
+    socket = io('https://juniors-gym-app-backend-dev-ktbd.2.us-1.fl0.io');
     socket.emit("Open member", params.id);
   }, []);
 

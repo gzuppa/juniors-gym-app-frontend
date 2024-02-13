@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: `${import.meta.env.VITE_BACKEND_URL}/api`,
+  baseURL: 'https://juniors-gym-app-backend-dev-ktbd.2.us-1.fl0.io/api',
 });
 
 export default axiosClient;
