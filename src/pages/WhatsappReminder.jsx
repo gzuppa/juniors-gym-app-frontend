@@ -50,7 +50,7 @@ const WhatsappReminder = () => {
   return (
     <div className="font-raleway ">
       <h1 className="text-4xl text-yellow-300 font-bold">
-        Envío de recordatorios
+        Envío de recordatorio
       </h1>
       <p className="text-lg text-yellow-300 mt-4">
         En esta sección se podrán enviar los recordatorios de pago para los
