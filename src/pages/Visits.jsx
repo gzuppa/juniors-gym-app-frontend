@@ -91,8 +91,8 @@ const Visits = () => {
 
             <DemoItem label="Fecha de visita">
               <DatePicker
-                value={visitPay}
-                onChange={(newValue) => setVisitPay(newValue)}
+                value={visitDate}
+                onChange={(newValue) => setVisitDate(newValue)}
               />
             </DemoItem>
 
