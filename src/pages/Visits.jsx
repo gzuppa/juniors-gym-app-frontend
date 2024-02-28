@@ -19,18 +19,6 @@ const Visits = () => {
   const [visitDate, setVisitDate] = useState("");
   const [visitPay, setVisitPay] = useState("");
 
-  useEffect(() => {
-    if (visit?._id) {
-      setName(visit.name);
-      setVisitDate(visit.visitDate);
-      setVisitPay(visit.visitPay);
-      return;
-    }
-    setName("");
-    setVisitDate("");
-    setVisitPay("");
-  }, [visit]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
