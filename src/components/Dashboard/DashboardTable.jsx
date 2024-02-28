@@ -13,6 +13,7 @@ import {
   TableRow,
 } from "@mui/material";
 import TablePagination from "@mui/material/TablePagination";
+import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DangerousIcon from "@mui/icons-material/Dangerous";
 import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
@@ -133,6 +134,8 @@ const DashboardTable = () => {
                               ? "secondary"
                               : members.status === "Bloqueado"
                                 ? "error"
+                                : members.status === "Pagado (transferencia)"
+                                  ? "warning"
                                 : "success"
                         }
                         icon={
@@ -142,6 +145,8 @@ const DashboardTable = () => {
                             <MoneyOffIcon />
                           ) : members.status === "Bloqueado" ? (
                             <DangerousIcon />
+                          ) : members.status === "Pagado (transferencia)" ? (
+                            <CreditCardIcon />
                           ) : (
                             <PriceCheckIcon />
                           )

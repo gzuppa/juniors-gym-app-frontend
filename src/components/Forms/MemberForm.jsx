@@ -288,6 +288,7 @@ const MemberForm = () => {
                 onChange={(e) => setStatus(e.target.value)}
               >
                 <MenuItem value={"Pagado"}>Pagado</MenuItem>
+                <MenuItem value={"Pagado (transferencia)"}>Pagado (transferencia)</MenuItem>
                 <MenuItem value={"Por pagar"}>Por pagar</MenuItem>
                 <MenuItem value={"Bloqueado"}>Bloqueado</MenuItem>
               </Select>

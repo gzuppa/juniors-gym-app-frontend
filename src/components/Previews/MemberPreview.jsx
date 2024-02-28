@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Chip, Stack } from "@mui/material";
+import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DangerousIcon from "@mui/icons-material/Dangerous";
 import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
@@ -30,6 +31,8 @@ const MemberPreview = ({ member }) => {
         return "secondary";
       case "Bloqueado":
         return "error";
+      case "Pagado (transferencia)":
+        return "warning";
       default:
         return "secondary";
     }
@@ -58,6 +61,8 @@ const MemberPreview = ({ member }) => {
         return <MoneyOffIcon />;
       case "Bloqueado":
         return <DangerousIcon />;
+      case "Pagado (transferencia)":
+        return <CreditCardIcon />;
       default:
         return <PriceCheckIcon />;
     }
