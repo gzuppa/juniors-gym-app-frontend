@@ -63,7 +63,7 @@ const Login = () => {
       <div className="flex justify-center items-center">
         <img src={JuniorsLogo} alt="JuniorsLogo" className="h-32 mr-5" />
         <h1 className="text-yellow-300 font-black text-5xl">
-          Bienvenido a <span className="text-purple-800">Junior's Gym</span>
+          Bienvenido a <span className="text-yellow-300">Junior's Gym</span>
         </h1>
       </div>
 
@@ -133,7 +133,7 @@ const Login = () => {
       <div>
         <a
           href="https://juniorsgym.com"
-          target='_blank'
+          target="_blank"
           className="block text-center my-5 text-yellow-300 uppercase text-sm"
         >
           Visitar sitio web

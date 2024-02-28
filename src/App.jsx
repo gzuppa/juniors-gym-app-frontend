@@ -16,6 +16,7 @@ import NewMember from "./pages/NewMember";
 import NewPassword from "./pages/NewPassword";
 import NewTrainer from "./pages/NewTrainer";
 import Register from "./pages/Register";
+import Visits from "./pages/Visits";
 import Warehouse from "./pages/Warehouse";
 import WarehouseArticleDetail from "./pages/WarehouseArticleDetail";
 import WarehouseArticleEdit from "./pages/WarehouseArticleEdit";
@@ -60,6 +61,7 @@ function App() {
                   element={<WarehouseArticleEdit />}
                 />
                 <Route path="send-reminder" element={<WhatsappReminder />} />
+                <Route path="visits" element={<Visits />} />
               </Route>
             </Routes>
           </MemberProvider>

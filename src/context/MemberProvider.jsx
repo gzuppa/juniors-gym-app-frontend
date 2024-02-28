@@ -11,6 +11,7 @@ const MemberContext = createContext();
 
 const MemberProvider = ({ children }) => {
   const [allMembers, setAllMembers] = useState([]);
+  const [allVisits, setAllVisits] = useState([]);
   const [members, setMembers] = useState([]);
   const [member, setMember] = useState({});
   const [loading, setLoading] = useState(false);
@@ -27,6 +28,7 @@ const MemberProvider = ({ children }) => {
   const [training, setTraining] = useState({});
   const [trainer, setTrainer] = useState({});
   const [article, setArticle] = useState({});
+  const [visit, setVisit] = useState({});
   const [allArticles, setAllArticles] = useState([]);
   const [searcher, setSearcher] = useState(false);
   const navigate = useNavigate();
@@ -94,7 +96,28 @@ const MemberProvider = ({ children }) => {
   }, [auth]);
 
   useEffect(() => {
-    socket = io('https://juniors-gym-app-backend-dev-ktbd.2.us-1.fl0.io');
+    const getAllVisits = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const { data } = await axiosClient("/visits", config);
+        setAllVisits(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllVisits();
+  }, [auth]);
+
+  useEffect(() => {
+    // socket = io('https://juniors-gym-app-backend-dev-ktbd.2.us-1.fl0.io');
+    socket = io("http://localhost:4000");
   }, []);
 
   const submitMember = async (member) => {
@@ -125,6 +148,37 @@ const MemberProvider = ({ children }) => {
       );
 
       setMembers(updatedMembers);
+      Swal.fire({
+        title: "Éxito!",
+        text: "El usuario fue actualizado correctamente",
+        icon: "success",
+        confirmButtonText: "Cerrar",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const editWarehouseArticle = async (article) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const { data } = await axiosClient.put(
+        `/warehouse/${article.id}`,
+        article,
+        config,
+      );
+      const updatedArticles = allArticles.map((memberState) =>
+        memberState._id === data._id ? data : memberState,
+      );
+
+      setAllArticles(updatedArticles);
       Swal.fire({
         title: "Éxito!",
         text: "El usuario fue actualizado correctamente",
@@ -185,6 +239,33 @@ const MemberProvider = ({ children }) => {
       setNewWarehouseArticleModal(false);
       setTimeout(() => {
         location.reload();
+      }, 3000);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const newVisit = async (visit) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const { data } = await axiosClient.post("/visits", visit, config);
+      setVisit(data);
+
+      Swal.fire({
+        title: "Éxito!",
+        text: "La visita fue registrada correctamente",
+        icon: "success",
+        confirmButtonText: "Cerrar",
+      });
+      setTimeout(() => {
+        navigate("/admin/visits");
       }, 3000);
     } catch (error) {
       console.log(error);
@@ -575,6 +656,7 @@ const MemberProvider = ({ children }) => {
         deleteTraining,
         deleteTrainingMember,
         deleteSecondaryTrainer,
+        editWarehouseArticle,
         getArticle,
         getMember,
         handleBlockedUsersModal,
@@ -588,6 +670,7 @@ const MemberProvider = ({ children }) => {
         handleSearching,
         handleTrainingModal,
         newArticle,
+        newVisit,
         submitMember,
         submitTrainer,
         submitTraining,
@@ -596,6 +679,7 @@ const MemberProvider = ({ children }) => {
         //state
         allArticles,
         allMembers,
+        allVisits,
         article,
         blockedUsersModal,
         deleteSecondaryTrainerModal,
@@ -611,6 +695,7 @@ const MemberProvider = ({ children }) => {
         trainer,
         training,
         trainingModal,
+        visit,
       }}
     >
       {children}

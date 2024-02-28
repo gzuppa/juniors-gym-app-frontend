@@ -5,6 +5,7 @@ import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import PeopleIcon from "@mui/icons-material/People";
 import WarehouseOutlinedIcon from "@mui/icons-material/WarehouseOutlined";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import WavingHandIcon from "@mui/icons-material/WavingHand";
 import { NavLink } from "react-router-dom";
 import JuniorsLogo from "../assets/images/logo-transparent.png";
 import useAuth from "../hooks/useAuth";
@@ -49,6 +50,11 @@ const Sidebar = ({ children }) => {
       path: "warehouse",
       name: "Inventario",
       icon: <WarehouseOutlinedIcon />,
+    },
+    {
+      path: "visits",
+      name: "Visitas",
+      icon: <WavingHandIcon />,
     },
   ];
   return (

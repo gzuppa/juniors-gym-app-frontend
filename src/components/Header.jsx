@@ -6,6 +6,7 @@ import GroupAddOutlinedIcon from "@mui/icons-material/GroupAddOutlined";
 import PeopleIcon from "@mui/icons-material/People";
 import WarehouseOutlinedIcon from "@mui/icons-material/WarehouseOutlined";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import WavingHandIcon from "@mui/icons-material/WavingHand";
 import JuniorsLogo from "../assets/images/juniors-gym-logo.png";
 import "../styles/Header.css";
 
@@ -88,6 +89,17 @@ const Header = () => {
             >
               <WarehouseOutlinedIcon className="mr-2 flex items-center justify-center" />
               Inventario
+            </Link>
+          </li>
+          <li className="text-yellow-300 hover:text-purple-800">
+            <Link
+              onClick={() => {
+                setIsNavExpanded(!isNavExpanded);
+              }}
+              to="/admin/visits"
+            >
+              <WavingHandIcon className="mr-2 flex items-center justify-center" />
+              Visitas
             </Link>
           </li>
           <li className="text-yellow-300 hover:text-purple-800">
