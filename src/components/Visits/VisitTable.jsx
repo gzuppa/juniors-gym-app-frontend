@@ -73,7 +73,7 @@ const VisitTable = () => {
                       </Box>
                     </TableCell>
                     <TableCell>
-                      <p className="font-raleway">{visits.visitDate.split('T')}</p>
+                      <p className="font-raleway">{visits.visitDate.split('T')[0]}</p>
                     </TableCell>
                     <TableCell>
                       <p className="font-raleway">{visits.visitPay}</p>
