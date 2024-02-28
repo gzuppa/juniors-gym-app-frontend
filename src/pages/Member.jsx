@@ -38,8 +38,8 @@ const Member = () => {
   }, []);
 
   useEffect(() => {
-    // socket = io('https://juniors-gym-app-backend-dev-ktbd.2.us-1.fl0.io');
-    socket = io("http://localhost:4000");
+    socket = io('https://juniors-gym-app-backend-dev-ktbd.2.us-1.fl0.io');
+    // socket = io("http://localhost:4000");
     socket.emit("Open member", params.id);
   }, []);
 

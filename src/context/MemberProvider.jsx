@@ -116,8 +116,8 @@ const MemberProvider = ({ children }) => {
   }, [auth]);
 
   useEffect(() => {
-    // socket = io('https://juniors-gym-app-backend-dev-ktbd.2.us-1.fl0.io');
-    socket = io("http://localhost:4000");
+    socket = io('https://juniors-gym-app-backend-dev-ktbd.2.us-1.fl0.io');
+    // socket = io("http://localhost:4000");
   }, []);
 
   const submitMember = async (member) => {
